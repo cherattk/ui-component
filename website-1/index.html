@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webiste - 1 -</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+          
+    <link rel="stylesheet" type="text/css" media="screen, print" 
+          href="css/theme.css"/>
+
+    <link rel="stylesheet" type="text/css" media="screen, print" 
+          href="css/website-1.css"/>
+
+</head>
+
+<body>
+    
+    <!-- head -->
+    <div class="head">        
+        <div class="logo">LOGO</div>
+    </div>
+
+    <!-- top navigation-->
+    <div id="navbar" class="navbar">
+        
+        <input id="navprod" type="radio" name="navbar" value="nav-prod-div"/>
+        <label for="navprod">About</label>
+        
+        <input id="navcontact" type="radio" name="navbar" value="nav-contact-div"/>
+        <label for="navcontact">Contact</label>
+        
+        <!--navigation content-->
+        <div id="nav-content" class="nav-content"> 
+            <span id="close-navbar" class="close">x</span>
+            
+            <div id="nav-prod-div">
+                <p>About</p>
+            </div>                
+            
+            <div id="nav-contact-div">
+                <p>Contact</p>
+            </div>
+            
+        </div>            
+        
+    </div>
+
+    <!-- content -->
+    <div class="content">
+        
+        <div class="banner">
+            <h3>Banner</h3>
+        </div>
+        
+    </div>
+
+    <!-- script : navbar action--> 
+    <script type="text/javascript">
+                
+        (function(){    
+            var old = null,
+                closeButton = document.getElementById('close-navbar'),
+                close = function(){
+                    if(old){
+                        document.getElementById(old.value).style.display = 'none';
+                        old.checked = false;
+                        old = null;
+                    }
+                    
+                    closeButton.style.display = 'none';
+                    
+                };
+            var input = document.getElementById('navbar').querySelectorAll('input[type="radio"]');
+            Array.from(input).map(function(item){
+                item.onchange = function(){
+                    close();
+                    var divContent = document.getElementById(this.value);
+                        divContent.style.display = 'block';                                
+                    old = this;                                
+                    closeButton.style.display = 'block';
+                    };
+                }
+            );
+
+            closeButton.onclick = close;
+
+        })();
+        
+    </script>
+
+</body>
+</html>

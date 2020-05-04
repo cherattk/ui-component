@@ -1,0 +1,17 @@
+/*** component style ***/
+.app-menu-content label{
+  border:1px solid #ddd;
+  background-color: #eee;
+  margin:5px;
+  text-align:left;
+  display: block;
+  position: relative;
+}
+.app-menu-content label:hover{
+  cursor:pointer;
+  background-color:#e5e5e5;
+}
+.app-menu-content input{
+  opacity:0;
+  z-index: 0;
+}

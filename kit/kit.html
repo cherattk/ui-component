@@ -1,0 +1,462 @@
+﻿<html><head>
+        <title>UI-KIT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="kit.css" rel="stylesheet" type="text/css">
+        
+        <script src="http://code.jquery.com/jquery-1.11.3.js" type="text/javascript"></script>
+        
+        
+    </head>
+    <body>
+        
+<div class="container">
+    
+    <!--Menu 1--> 
+    <div class="ui"> <h2>BROWSE MENU</h2>		
+    <ul class="menu-grid">
+    <li><label>Categorie</label>
+        <ul class="ctg-1">
+        <li>
+            <a href="#">Categorie</a>
+            <ul>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Categorie<span>(12)</span></a>
+            <ul>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Categorie<span>(102)</span></a>
+            <ul>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+                <li><a href="#">sous-categorie</a></li>
+            </ul>
+        </li>
+        </ul>
+    </li>
+    </ul>         
+
+    </div>
+        
+     <!--Menu 2--> 
+    <div class="ui"> <h2>BROWSE MENU 2</h2>
+    <ul class="menu-grid-2">
+        <li>
+            <a href="#">Categorie 1</a>
+            <ul>
+                <li class="imgctg" style="float: right;"><img src="./img/ctg-1.jpg"></li>
+                <li><a href="#">sous-categorie 1</a></li>
+                <li><a href="#">sous-categorie 2</a></li>
+                <li><a href="#">sous-categorie 3</a></li>
+                <li><a href="#">sous-categorie 4</a></li>					
+            </ul>
+        </li>
+        <li>
+            <a href="#">Categorie 1</a>
+            <ul>
+                <li class="imgctg" style="float: right;"><img src="./img/ctg-2.jpg"></li>
+                <li><a href="#">sous-categorie 5</a></li>
+                <li><a href="#">sous-categorie 6</a></li>
+                <li><a href="#">sous-categorie 7</a></li>
+                <li><a href="#">sous-categorie 8</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Categorie 1</a>
+            <ul>
+                <li class="imgctg" style="float: right;"><img src="./img/ctg-3.jpg"></li>
+                <li><a href="#">sous-categorie 9</a></li>
+                <li><a href="#">sous-categorie 10</a></li>
+                <li><a href="#">sous-categorie 11</a></li>
+                <li><a href="#">sous-categorie 12</a></li>					
+            </ul>
+        </li>
+        <li>
+            <a href="#">Categorie 1</a>
+            <ul>
+                <li class="imgctg" style="float: right;"><img src="./img/ctg-4.jpg"></li>
+                <li><a href="#">sous-categorie 13</a></li>
+                <li><a href="#">sous-categorie 14</a></li>
+                <li><a href="#">sous-categorie 15</a></li>
+                <li><a href="#">sous-categorie 16</a></li>
+            </ul>
+        </li>			
+    </ul>         
+    </div>
+			
+    <!--Search Form--> 
+    <div class="ui"> <h2>SEARCH FORM + TOKENINPUT</h2>
+    <form class="searchform" id="searchform">
+            <ul class="token-input-list">
+                <li class="token-input-input-token">
+                <input id="token-input-search-field" style="" type="text" autocomplete="off">
+                </li></ul><input name="what" class="txt" id="search-field" style="display: none;" type="text" placeholder="php, python, java">
+            <input class="submit icon" type="submit" value="OK">
+    </form>
+    
+    <script src="widget/tokeninput.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#search-field").tokenInput(            
+            [ // Data
+            {id: 7, name: "Ruby"},
+            {id: 11, name: "Python"},
+            {id: 13, name: "JavaScript"},
+            {id: 17, name: "ActionScript"},
+            {id: 19, name: "Scheme"},
+            {id: 23, name: "Lisp"},
+            {id: 29, name: "C#"},
+            {id: 31, name: "Fortran"},
+            {id: 37, name: "Visual Basic"},
+            {id: 41, name: "C"},
+            {id: 43, name: "C++"},
+            {id: 47, name: "Java"},
+            ],                
+            // Options
+            {tokenLimit:1}
+            );
+    });
+    </script>        
+    </div>
+      
+      
+      <!--Select Menu--> 
+    <div class="ui"> <h2>Select Menu</h2>              
+        <div id="uik-select" class="select-menu">
+            <label class="drop-option">
+                <input disabled="disabled" type="text" placeholder="option">
+                <span>+</span>
+            </label>   
+            <ul class="option-menu" style="display: none;">
+                <li data-value="value A">Categorie 1</li>
+                <li data-value="value B">Categorie 2</li>
+                <li data-value="value C">Categorie 3</li>
+            </ul>          
+         </div>
+        <script type="text/javascript">
+
+            var widgetSelect = function(widgetDiv){
+                
+                    var widget = document.getElementById(widgetDiv),
+                        menu = widget.querySelector('.option-menu'),
+                        dropdown = widget.querySelector('.drop-option'),
+                        fieldText = dropdown.getElementsByTagName("input")[0];
+
+                    menu.style.display = "none";
+                    dropdown.onclick = function(){
+                        menu.style.display = (menu.style.display === "none") ? "block" : "none";				
+                    }
+                    
+                    menu.onclick = function(e){
+                        if(e.target.tagName === "LI"){
+                            //this.parentNode.style.display = "none";
+                            fieldText.value = e.target.getAttribute("data-value");
+                            dropdown.click();
+                        }                        
+                    };
+                }
+                
+            // atatch handler
+            widgetSelect('uik-select');
+
+        </script>
+    </div>
+        
+    <!--Ticket--> 
+    <div class="ui"> <h2>Ticket</h2>
+        <!--sell conditions--> 
+        <div class="sell-modes">
+
+            <h2>Conditions de Vente</h2>
+            <ul class="conditions">
+            <!--payment mode-->
+            <li><h3>Paiement</h3>
+                <div>
+                    <img src="./icon/visa.png">
+                    <img src="./icon/mastercard.png">
+                    <img src="./icon/amex.png">
+                    <img src="./icon/discover.png">
+                </div>
+            </li>
+
+            <!--shipping mode -->	
+            <li><h3>Livraison</h3>
+            <div>
+                <p>
+                  dummy text for industry dummy text
+                </p>
+                <table>
+                    <colgroup>
+                      <col style="width: 70%;">
+                      <col style="width: 30%;">
+                    </colgroup>
+                      <tbody><tr>
+                          <th>Destination</th><th>Frais</th>
+                      </tr>
+                      <tr>
+                          <td>Montréal</td><td>2,00$</td>
+                      </tr>
+                      <tr>							
+                          <td>Hors Montreal</td><td>4,00$</td>
+                      </tr>
+                </tbody></table>
+            </div>
+            </li>
+
+            <!--return mode-->
+            <li><h3>Rembourssement</h3>
+                <div>
+                    <p>
+                      dummy text for industry dummy text for industry dummy 
+                      text for industry
+                      dummy text for industry dummy text for industry dummy
+                    </p>
+                </div>
+            </li>
+            </ul>
+
+        </div>  
+    </div>
+        
+    <!--Select File-->
+    <div class="ui">
+        <div class="selectimage">
+        <form class="fileform" id="upitemimg" enctype="multipart/form-data" method="POST" target="recepteur" data-callback="itemImage">
+
+            <!-- image controle -->
+                <input name="browse" class="selectfile button" type="button" value="Choisir Image"/>
+                <input name="file" class="file" type="file" data-form="#imgform"/>
+                <input name="filename" class="txt filename" type="text" readonly="readonly"/>
+                <input class="button" type="submit" value="Ajouter"/>
+        </form>
+        
+        <div id="img-preview">
+            <img title="file preview" id="file-output"/>
+        </div>
+    </div>
+        <script type="text/javascript">
+
+            (function(){
+
+                var upfile = document.querySelectorAll(".fileform");
+
+                //console.log(upfile);return;
+
+                var getFile = function(fileform){
+
+                    // on submit form
+                    fileform.onsubmit = function(e){
+
+                        if(this.elements['filename'].value === ""){
+                            e.preventDefault();
+                            alert('You Must choose a file');
+                            return;
+                        }
+                        /* set callabck function on iframe
+                        var callbackName = this.getAttribute('data-callback');          
+                        recepteur.setAttribute('data-callback',callbackName);
+                        */                        
+                        };
+
+                    // browse file
+                    fileform.elements['browse'].onclick = function(){
+                        fileform.elements["file"].click();            
+                    };
+
+                    // select file
+                    fileform.elements["file"].onchange = function(e){
+                        fileform.elements["filename"].value = this.value;
+                        /* image preview
+                        var preview = document.getElementById('file-output');
+                        preview.src = URL.createObjectURL(e.target.files[0]);
+                        */
+                        var reader = new FileReader();
+                        reader.onload = function(){
+                          var output = document.getElementById('file-output');
+                            output.src = reader.result;
+                            };
+                        reader.readAsDataURL(e.target.files[0]);                        
+                        };
+                };
+                
+                for(var i = 0 ; i < upfile.length  ; i++){               
+                                getFile(upfile[i]);                                  
+                    };
+            })();
+
+        </script>
+    </div>
+    
+    <!-- Add Comment -->
+    <div class="ui">
+		<div class="cmtdiv">
+		<!-- Login Invitation-->
+		<div class="plzlogin">
+			<p>
+			<span id="getlogpop">Se connecter</span>
+			ou
+			<span><a href="./signin.html">S'inscrire</a></span>
+			</p>
+			
+		</div>               
+	   
+		<!--IF CONNECTED-->
+		<div class="cmtform">
+			
+			<div class="getform">
+				<input id="getform" type="checkbox">
+				<label for="getform">Ecrire Un Commentaire</label>                            
+			</div>
+			
+			<form id="cmtform">
+				<label for="usercmt">John Doe</label>
+				<textarea name="usercmt" class="txt"></textarea>
+				<input class="button" type="submit" value="Envoyer">
+				<input class="button" type="reset" value="Annuler">
+			</form>
+			
+			<script type="text/javascript">
+				
+				(function(){
+					var f = document.getElementById('cmtform');
+					var b = document.getElementById('getform');
+					var state = {true:"getform check",false:"getform"};
+					
+					b.onchange = function(){
+						this.parentNode.className = state[this.checked];
+					};                                
+					f.onreset = function(){                                   
+						b.click();
+					};
+					
+				})();
+				
+			</script>
+			
+		</div>    
+	</div>
+    </div>
+    
+    <!-- sondage  -->
+    <div class="ui">
+        <div class="sondage">
+        <h3>Aidez-nous à mieux vous servire</h3>
+        <span class="close">x</span>
+        <div>
+            <h4>Produit</h4>
+            <p>J'aime bien</p>
+            <p>J'adore</p>           
+            <p>J'ai trouvé mieux</p> 
+        </div>
+        <div>
+            <h4>Prix</h4>
+            <p>C'est correct</p>
+            <p>Trop Cher</p>           
+            <p>Bof</p> 
+        </div>
+        <div>
+            <h4>Acheter en ligne</h4>
+            <p>Je prefere aller au magazin</p>
+            <p>Oui, si la livraison est de $3.5</p>           
+            <p>Bof</p> 
+        </div>
+    </div>
+    </div>
+
+    <!-- tab section -->
+    <div class="ui">
+    
+        <div class="tab-navigation">
+            <!-- NAVIGATION -->        
+            <div id="tabnav" class="hnav">
+                <input id="gettab1" value="tab1" name="tabnav" checked="checked" type="radio" >
+                <label for="gettab1">Tab 1</label>
+           
+                
+                <input id="gettab2" value="tab2" name="tabnav" type="radio">
+                <label for="gettab2">Tab 2</label>
+            </div>
+            
+            <div class="section" id="tab1" style="display: block;">
+               <h1>Data 1</h1>       
+            </div>
+            <div class="section" id="tab2">
+                <h1>Data 2</h1>  
+            </div>
+        </div>
+        
+        <!-- script : navbar action--> 
+        <script type="text/javascript">
+        (function($){
+           var old = null;            
+            $('#tabnav').children('input[type="radio"]').each(
+                function(){
+                    
+                    var divContent = document.getElementById(this.value);
+                    this.onchange = function(){
+                        
+                        divContent.style.display = 'block';                                
+                        document.getElementById(old.value).style.display = 'none';
+                        
+                        old = this;                      
+
+                    };
+                    
+                    if(this.checked){
+                        old = this;
+                    }else{                        
+                        divContent.style.display = 'none';
+                    }
+                }
+            );
+        })(jQuery);
+        </script>
+    </div>
+    
+    
+    <!-- color grid --> 
+    <div class="ui">
+        <h2>Couleurs Disponibles</h2>
+        <div id="dispocolor" class="dispo-color">
+            <div id="colorgrid"></div>
+            <div id="pickcolor" class="add">
+                <input type="hidden" name="itemcolors"/>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+        
+            var colors = 'blue,red,green,yellow';
+            // Color Div 
+            var divcolor = document.getElementById('colorgrid');
+                divcolor.innerHTML = "";
+
+            var tabcolor = colors.split(',');
+                tabcolor.splice(-1, 1);
+
+                for(var i = 0 ; i <= tabcolor.length ; i++){
+                    var c = document.createElement('div');
+                        c.className = "color";                       
+                        c.style.backgroundColor = tabcolor[i];
+                    divcolor.appendChild(c);
+                }
+                
+        </script>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/*** component style ***/
+.my-component{
+  border:1px solid #dae6f5;
+  background-color: #edf4fd;
+  margin:20px;
+  text-align:center;
+  height:calc(100% - 40px);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- base style-->
+  <link rel="stylesheet" type="text/css" media="screen, print" href="css/icon.css" />
+  <link rel="stylesheet" type="text/css" media="screen, print" href="css/dashboard.css" />
+
+  <!-- application style  -->
+  <link rel="stylesheet" type="text/css" media="screen, print" href="css/component.css" />
+
+  <script data-main="js/main" src="js/lib/require.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+      <!--logo-->
+      <h1 class="logo"> Logo </h1>
+      <div id="toggle-menu" class="toggle-menu">
+        <label for="toggle-app-menu">MENU</label>
+        <input id="toggle-app-menu" type="checkbox" name="toggle-app-menu" />
+      </div>
+    </div>
+
+    <div id="app-menu-container" class="app-menu-container">
+
+      <div id="app-menu" class="app-menu">
+
+        <!-- INSERT COMPONENT HERE AS CHILD OF "APP-MENU" -->
+        <div id="app-menu-content" class="app-menu-content">
+          <label for="nav-mod-1" class="nav-link">
+            <span>Moduel 1 </span>
+            <input id="nav-mod-1" type="radio" name="module_nav" value="module-1" checked/>
+          </label>
+          <label for="nav-mod-2" class="nav-link">
+            <span>Moduel 2 </span>
+            <input id="nav-mod-2" type="radio" name="module_nav" value="module-2"/>
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="module-container" class="module-container">
+
+        <!-- INSERT COMPONENT HERE AS CHILD OF "MODULE-CONTAINER" -->
+        <div id="module-1" class="module">
+          <h3>Module 1</h3>
+        </div>
+        <div id="module-2" class="module">
+          <h3>modul-2</h3>
+        </div>
+
+    </div>
+
+  <script type="text/javascript">
+
+    // ***************** App Menu Toggling *****************
+    (function () {
+      var menuContainer = document.getElementById('app-menu-container');
+      var toggleMenu = document.getElementById('toggle-app-menu');
+
+      toggleMenu.onchange = function (ev) {
+        var style = ev.target.checked ? "show" : "";
+        menuContainer.className = "app-menu-container " + style;
+      };
+
+      menuContainer.onclick = function (ev) {
+        if (ev.target.id == "app-menu-container" ||
+            ev.target.id == "app-menu") {
+          toggleMenu.click();
+        }
+      };
+    })();
+
+    // ***************** Module Navigation *****************
+    (function () {
+      var menuContainer = document.getElementById('app-menu-content');
+      var moduleList = menuContainer.querySelectorAll("input[name='module_nav']");
+
+      var previous = '';
+      moduleList.forEach(function (input, idx) {
+        var moduleDiv = document.getElementById(input.value);
+        if (input.checked) {
+          previous = input.value;
+          moduleDiv.style.display = "block";
+        }
+        else {
+          moduleDiv.style.display = "none";
+        }
+
+        input.onchange = function (ev) {
+          if (ev.target.checked) {
+            moduleDiv.style.display = "block";
+            document.getElementById(previous).style.display = "none";
+            previous = ev.target.value;
+          }
+        }
+      });
+    })();
+
+  </script>
+
+</body>
+
+</html>
